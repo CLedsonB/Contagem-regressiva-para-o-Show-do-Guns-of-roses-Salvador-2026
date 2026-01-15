@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quantos dias até o show do Guns of roses em Salvador? Quando é o Show - Contagem Regressiva - dias, horas, minutos e segundos até 15 de abril de 2026">
+  <meta name="keywords" content="Show do Guns of roses,Guns of roses,Arena fonte Nova,Contagem regressiva,Data,Hora,Temporizador,Horário">
+  <meta name="copyright" content="Copyright (c) CLedsonB">
+  <link rel="icon" href="img/icon1.png">
+    <title>Contagem Regressiva para o Show do Guns of Roses em Salvador</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;  
+}
+@font-face {
+    font-family: 'Rock';
+    src: url('fonts/maximumVoltage/MV.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Digital';
+    src: url('fonts/dsDigital/DS-DIGIT.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    background-image: url('img/back2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #282c34;
+    color: #fff;
+}
+.titulo{
+    font-family: 'Rock'
+}
+.countdown {
+    margin-bottom: 200px;
+    text-align: center;
+}
+.countdown h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+.countdown span {
+    font-family: 'Digital';
+    font-size: 34px;
+    margin: 5px 0;
+}
+.countdown p {
+    margin: 10px 0;
+}
+#texto-dias{
+    font-size: 22px;
+}
+.data{
+    font-size: 22px;
+}
+.endereco {
+    font-size: 20px;
+}
+#creditos {
+  font-family: monospace;
+  font-size: 22px;
+  position: fixed;
+  bottom: 0;
+  width: 50%
+}
+a {
+    color: #717168;
+}
+    </style>
+</head>
+<body>
+
+<div class="countdown">
+    <h1 class="titulo">Contagem Regressiva</h1>
+    <span id="days"></span>
+    <span id="texto-dias"> dias </span>
+    <span id="hours"></span>
+    <span id="minutes"></span>
+    <span id="seconds"></span>
+    <br>
+    <p class="data">Qua - 15 de Abril de 2027</p>
+    <p class="endereco"><a href="https://maps.app.goo.gl/7323bNi7t7nDnx597">Arena Fonte Nova - Salvador</a></p>
+    <footer>
+        <span id="creditos"><a href="https://github.com/CLedsonB">CLedsonB</a></span>
+    </footer>
+</div>
+<script>
+    const targetDate = new Date('2026-04-15T20:00:00').getTime();
+
+    const countdownFunction = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = `${days}`;
+        document.getElementById('hours').innerText = `${hours}:`;
+        document.getElementById('minutes').innerText = `${minutes}:`;
+        document.getElementById('seconds').innerText = `${seconds}`;
+
+        if (distance < 0) {
+            clearInterval(countdownFunction);
+            document.querySelector('.countdown').innerHTML = "<h1>Contagem Regressiva Terminada!</h1>";
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
